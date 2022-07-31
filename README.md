@@ -144,5 +144,32 @@ Berikut merupakan hasil rekomendasi buku kepada user dengan ID: 241204</br>
 
 <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/collaborative_result.png' width=70% />
 
+## **Evaluation**
+Evaluasi yang akan dilakukan diproyek ini yaitu evaluasi dengan Precision Content untuk Content-Based Filtering dan Root Mean Squared Error (RMSE) untuk Collaborative Filtering.
 
-<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/collaborative_result.png' width=70% />
+### **Content-Based Filtering**
+Evaluasi pada teknik ini menggunakan metrik precision content untuk menghitung tingkat presisi sistem dari rekomendasi yang dibuat. Berikut hasilnya:
+
+Formula metrik Precision:</br>
+<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/precision_metric.png' width=70% /></br>
+
+Hasil metric Presision:</br>
+<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/content_acuan.png' width=70% />
+<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/content_based_result.png' width=70% /><Br>
+
+Untuk menentukan hasil dari metrik precision adalah dengan melakukan analisa pada buku yang akan dijadikan sebagai acuan. Dapat dilihat dari gambar di atas bahwa buku yang akan dijadikan sebagai acuan memiliki author dengan nama `Tamora Pierce`. Lalu dari hasil 10 rekomendasi buku yang diberikan oleh sistem terdapat 6 buku dengan nama author `Tamora Pierce`. Jadi dapat disimpulkan bahwa tingkat presisi pada sistem ini yaitu 6/10 atau sebesar 60%. Hasil didapatkan seperti ini dikarenakan buku dengan author `Tamora Pierce` yang terdapat di dalam data hanya berjumlah 6.
+
+### **Collaborative Filtering**
+Metrik evaluasi yang digunakan untuk mengukur performa dari model ini yaitu dengan menggunakan metrik Root Mean Squared Error (RMSE). Cara Menghitung Root Mean Square Error (RMSE) adalah dengan mengurangi nilai aktual dengan nilai peramalan kemudian dikuadratkan dan dijumlahkan keseluruhan hasilnya kemudian dibagi dengan banyaknya data. Hasil perhitungan tersebut selanjutnya dihitung kembali untuk mencari nilai dari akar kuadrat. Semakin rendah nilai root mean square error juga menandakan semakin baik model tersebut dalam melakukan prediksi.</br>
+
+<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/rmse_formula.png' width=70% /></br>
+
+<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/collaborative_metrics.png.png' width=70% /></br>
+
+Dari hasil pelatihan yang dilakukan. Dapat dilihat bahwa nilai konvergen metrik RMSE berada di sekitar 0.28 untuk training dan disekitar 0.35 untuk validasi.
+
+## **Conslusion**
+Dari hasil pembuatan proyek sistem rekomendasi buku diatas. Dapat disimpulkan bahwa model memiliki performa yang sangat baik dalam memberikan rekomendasi baik pada model yang menggunakan teknik Content-Based Filtering maupun Collaborative Filtering. Hal ini didukung dengan hasil rekomendasi yang diberikan dari kedua model memberikan hasil rekomendasi yang cukup relevan dengan preferensi pengguna.
+
+## **Reference**
+Irfan, M., Cahyani, A. D., & R, F. H. (2014). SISTEM REKOMENDASI: BUKU ONLINE DENGAN METODE COLLABORATIVE FILTERING. JURNAL TEKNOLOGI TECHNOSCIENTIA, 7(1), 076–84.
