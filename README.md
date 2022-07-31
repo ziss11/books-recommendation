@@ -23,7 +23,7 @@ Tujuan dibuatnya proyek ini adalah sebagai berikut:
 Solusi yang dapat diterapkan agar goals diatas terpenuhi adalah sebagai berikut:
 
 * Melakukan analisa pada data untuk dapat memahami data yang ada seperti: Memeriksa missing value dan duplikasi data.
-* Melakukan pemrosesan pada data seperti Normalisasi data rating.
+* Melakukan pemrosesan pada data seperti Normalisasi data rating, agar data dapat dengan mudah di proses oleh model.
 * Membangung sistem rekomendasi menggunakan 2 teknik yang umum digunakan yaitu: Content-Based Filtering dan Collaborative Filtering. 
 
 ## **Data Understanding**
