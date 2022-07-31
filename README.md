@@ -55,19 +55,26 @@ Pada proyek ini hanya menggunakan 2 file data, yaitu:
 Untuk dapat lebih memahami data perlu dilakukan eksplorasi pada data, eksplorasi yang di lakukan antara lain: 
 
 * Memeriksa informasi pada data</br>
-    * Books
-    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/info_books.png' width=100% /></br>
+    * Books</br>
+    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/info_books.png' width=70% /></br>
     Berdasarkan output di atas, dapat diketahui bahwa file Books.csv memiliki 271360 entri. Kemudian, semua kolom data memiliki type data object, sedangkan untuk kolom data `Year-Of-Publication` memiliki tipe data object yang mana seharusnya data tersebut memiliki tipe data number, tetapi hal ini tidak menjadi masalah sebab data ini tidak diperlukan untuk membuat sistem rekomendasi.</br>
-    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/book_count.png' width=100% /></br>
-    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/authors_count.png' width=100% /></br>
+    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/book_count.png' width=70% /></br>
+    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/authors_count.png' width=70% /></br>
     Kemudian terdapat jumlah 242135 buku dan 102023 _author_ (pengarang) pada data.
     
-    * Ratings
-    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/info_ratings.png' width=100% /></br>
+    * Ratings</br>
+    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/info_ratings.png' width=70% /></br>
     Untuk data ratings, memiliki 1149780 entri dan terdapat 2 tipe pada data yaitu number (int64) dan object.
-    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/ratings_count.png' width=100% /></br>
+    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/ratings_count.png' width=70% /></br>
     dapat dilihat pada gambar di atas, nilai maksimum rating adalah 10 dan nilai minimumnya adalah 0. Artinya, skala rating berkisar antara 0 hingga 10. Lalu mayoritas buku memiliki rating=0 yaitu sebanyak 716109 buku.
 
 * Memeriksa _Missing Value_</br>
-    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/ratings_count.png' width=100% /></br>
-    
+    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/books_missing_value.png' width=70% /></br>
+    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/ratings_missing_value.png' width=70% /></br>
+    Jika dilihat dari output di atas. Terdapat sedikit missing value pada data buku, sedangkan pada data rating tidak memiliki missing value.
+
+* Memeriksa duplikasi data</br>
+    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/book_duplicates.png' width=70% /></br>
+    Dapat dilihat pada output diatas. Tidak terdapat duplikat pada data `ISBN` tetapi terdapat banyak duplikat pada kolom data lainnya. Ini tidak wajar sebab `ISBN` merupakan identitas unik untuk masing-masing judul buku yang seharusnya jika `ISBN` tidak memiliki duplikat maka begitupun untuk data `Book-Title`.</br>
+    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/rating_duplicates.png' width=70% /></br>
+    Begitupun pada data rating, terdapat banyak duplikat pada data. Tetapi ini hal yang wajar sebab tiap user dapat memberikan rating pada tiap buku yang berbeda dan buku yang berbeda dapat menerima rating dari user yang berbeda pula.
