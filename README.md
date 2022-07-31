@@ -101,13 +101,44 @@ Penyeleksian data pada proyek ini yaitu dengan hanya mengambil data buku dengan 
 Melakukan transformasi pada data fitur fitur yang akan dipelajari oleh model menggunakan library MinMaxScaler. MinMaxScaler mentransformasikan fitur dengan menskalakan setiap fitur ke rentang tertentu. Library ini menskalakan dan mentransformasikan setiap fitur secara individual sehingga berada dalam rentang yang diberikan pada set pelatihan, pada library ini memiliki range default antara 0 dan 1. Dengan merenapkan teknik normalisasi data, model akan dengan lebih mudah mengenali pola-pola yang terdapat pada data sehingga akan menghasilkan keluaran sesuai dengan yang diharapkan.
 
 * Split dataset</br>
-Membagi dataset menjadi data latih (train) dan data uji (test) merupakan hal yang harus kita lakukan sebelum membuat model.Data latih adalah sekumpulan data yang akan digunakan oleh model untuk melakukan pelatihan. Sedangkan, data uji adalah sekumpulan data yang akan digunakan untuk memvalidasi kinerja pada model yang telah dilatih. Karena data uji berperan sebagai data baru yang belum pernah dilihat oleh model, maka cara ini efektif untuk memeriksa performa model setelah proses pelatihan dilakukan. Proporsi pembagian dataset pada proyek ini menggunakan proporsi pembagian 80:20 yang berarti sebanyak 80% merupakan data latih dan 20% persen merupakan data uji.
+Membagi dataset menjadi data latih (train) dan data uji (test) merupakan hal yang harus kita lakukan sebelum membuat model.Data latih adalah sekumpulan data yang akan digunakan oleh model untuk melakukan pelatihan. Sedangkan, data uji adalah sekumpulan data yang akan digunakan untuk memvalidasi kinerja pada model yang telah dilatih. Karena data uji berperan sebagai data baru yang belum pernah dilihat oleh model, maka cara ini efektif untuk memeriksa performa model setelah proses pelatihan dilakukan. Proporsi pembagian dataset pada proyek ini menggunakan proporsi pembagian 90:10 yang berarti sebanyak 90% merupakan data latih dan 10% persen merupakan data uji.
 
 ## **Modelling**
 Pembuatan sistem rekomendasi pada proyek ini menggunakan teknik Content-Based Filtering dan Collaborative Filtering. Untuk Content-Based Filtering menggunakan metode Cosine Similarity, sedangkan Collaborative Filtering menggunakan metode model based yaitu model Deep Learning. Berikut merupakan penjelasan dari tiap tahapan proses modelling:
 
 ### **Content-Based Filtering**
-Pada metode ini pertama yang dilakukan yaitu melakukan feature engineering menggunakan library TfidfVectorizer dari library scikit-learn. Proses yang dilakukan menggunakan library TfidfVectorizer adalah tokenisasi fitur `Book-Author` sebab fitur tersebut yang akan menjadi acuan utama sistem rekomendasi menggunakan teknik ini. Output yang dihasilkan oleh library tersebut adalah matrix categorical. Kemudian, setelah itu dilakukan penghitungan derajat kesetaraan (similarity degree) antar buku menggunakan Cosine Similarity. Berikut merupakan formula untuk metode Cosine Similarity:</br>
+Pada metode ini pertama yang dilakukan yaitu melakukan feature engineering menggunakan library TfidfVectorizer dari library scikit-learn. Proses yang dilakukan menggunakan library TfidfVectorizer adalah tokenisasi fitur `Book-Author` sebab fitur tersebut yang akan menjadi acuan utama sistem rekomendasi menggunakan teknik ini. Output yang dihasilkan oleh library tersebut adalah matrix categorical. Kemudian, setelah itu dilakukan penghitungan derajat kesetaraan (similarity degree) antar buku menggunakan Cosine Similarity. Berikut merupakan formula untuk metode Cosine Similarity:
+
 <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/cs_formula.png' width=70% />
 
+Kemudian, untuk mendapatkan top-N recommendation harus mengambil nilai k tertinggi. Pada proyek ini menggunakan fungsi argpartition dari library numpy untuk mendapatkan top k tertinggi pada similarity data. Lalu setelah itu sistem dapat menampilkan buku yang direkomendasikan berdasarkan author yang sama dari buku yang telah dibaca sebelumnya. Teknik Content-Based Filtering ini juga memiliki kelebihan dan kekurangan-nya.
+
+* Kelebihan:</br>
+    * Semakin banyak informasi yang diberikan pengguna, semakin baik akurasi sistem rekomendasi.
+    Kekurangan
+
+* Kekurangan:</br>
+    * Hanya dapat digunakan untuk fitur yang sesuai, seperti film, dan buku.
+    * Tidak mampu menentukan profil dari user baru.
+
+Berikut merupakan judul konten yang akan dijadikan acuan untuk menentukan top 10 rekomendasi buku yang memiliki author yang sama:</br>
+
+<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/content_acuan.png' width=70% />
+
+Dapat terlihat sistem rekomendasi dengan teknik Content-Based Filtering menghasilkan rekomendasi yang cukup bagus yaitu dengan menampilkan 6 buku dengan author yang sama dengan buku `First Test (Protector of the Small)`
+
+<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/content_based_result.png' width=70% />
+
+### **Collaborative Filtering**
+Pada teknik ini proses pembuatan rekomendasi menggunakan model Deep Learning. Langkah yang pertama yaitu dengan menggabungkan data buku dan rating. Setelah itu melakukan penyandian terhadap data `User-ID` dan `ISBN` dan memisahkan data latih dan data validasi dengan ratio 80:20. Kemudian membuat model untuk melakukan pelatihan pada data. Model ini menggunakan operasi perkalian dot product antara embedding user dan book. Skor kecocokan ditetapkan dalam skala [0,1] dengan fungsi aktivasi sigmoid. Untuk mendapatkan hasil rekomendasi, dipilih `User-ID` secara acak dan akan dilakukan penyaringan daftar buku yang belum pernah dibaca oleh user. Tentunya teknik ini memiliki kelebihan dan kekurangannya sendiri, yaitu: 
+* Kelebihan
+    * Tidak memerlukan atribut untuk setiap itemnya.
+    * Dapat membuat rekomendasi tanpa harus selalu menggunakan dataset yang lengkap.
+    * Unggul dari segi kecepatan dan skalabilitas.
+    * Rekomendasi tetap akan berkerja dalam keadaan dimana konten sulit dianalisi sekalipun.
+
+* Kekurangan
+    * Membutuhkan parameter rating, sehingga jika ada item baru sistem tidak akan merekomendasikan item tersebut.
+
+Berikut merupakan hasil rekomendasi buku kepada user dengan ID: 241204
 
