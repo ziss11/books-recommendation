@@ -8,3 +8,17 @@ Rendahnya minat baca dikalangan masyarakat menjadi persoalan penting didunia pen
 
 Berdasarkan latar belakang yang telah dijelaskan di atas, topik proyek ini diambil dengan tujuan sebagai domain proyek machine learning yang akan dibuat. Selain itu, proyek ini dibuat untuk dapat melengkapi fitur yang dapat digunakan pada proyek aplikasi yang akan dibuat oleh penulis. Diharapkan sistem rekomendasi ini dapat digunakan pada sebuah aplikasi dan memberikan rekomendasi yang relevan sesuai dengan preferensi pengguna dan dapat meningkatkan kenyamanan pengguna saat menggunakan aplikasi.
 
+## **Business Understanding**
+### **Problem Statement**
+Berdasarkan pada latar belakang di atas, permasalahan yang dapat diselesaikan pada proyek ini adalah sebagai berikut:
+* Bagaimana cara melakukan pengelolahan data sehingga dapat menghasilkan rekomendasi yang baik dan relevan?
+* Bagaimana cara membangun sistem untuk merekomendasikan buku yang yang sesuai dengan preferensi pengguna?
+### **Goals**
+Tujuan dibuatnya proyek ini adalah sebagai berikut:
+* Melakukan pengolahan data yang baik agar dapat digunakan dalam membangun sistem rekomendasi yang baik.
+* Membangun model machine learning untuk merekomendasikan sebuah buku yang sesuai dengan preferensi pengguna.
+### **Solution**
+Untuk menyelesaikan masalah ini, penulis akan menggunakan 2 solusi algoritma yaitu content-based filtering dan collaborative filtering. Berikut adalah penjelasan teknik-teknik yang akan digunakan untuk masalah ini:
+
+Content-Based Filtering merupakan cara untuk memberi rekomendasi bedasarkan genre atau fitur pada item yang disukai oleh pengguna. Content-based filtering mempelajari profil minat pengguna baru berdasarkan data dari objek yang telah dinilai pengguna.
+Collaborative Filtering merupakan cara untuk memberi rekomendasi bedasarkan penilaian komunitas pengguna atau biasa disebut dengan rating. Collaborative filtering tidak memerlukan atribut untuk setiap itemnya seperti pada sistem berbasis konten.
