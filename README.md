@@ -145,3 +145,4 @@ Berikut merupakan hasil rekomendasi buku kepada user dengan ID: 241204</br>
 <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/collaborative_result.png' width=70% />
 
 
+<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/collaborative_result.png' width=70% />
