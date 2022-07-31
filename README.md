@@ -19,7 +19,7 @@ Tujuan dibuatnya proyek ini adalah sebagai berikut:
 
 * Dapat Melakukan pengolahan data yang baik agar dapat digunakan dalam membangun sistem rekomendasi yang baik.
 * Membangun model machine learning untuk merekomendasikan sebuah buku yang sesuai dengan preferensi pengguna.
-### **Solution**
+### **Solution Approach**
 Solusi yang dapat diterapkan agar goals diatas terpenuhi adalah sebagai berikut:
 
 * Melakukan analisa pada data untuk dapat memahami data yang ada seperti: Memeriksa missing value dan duplikasi data.
