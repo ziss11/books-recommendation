@@ -164,7 +164,7 @@ Metrik evaluasi yang digunakan untuk mengukur performa dari model ini yaitu deng
 
 <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/rmse_formula.png' width=70% /></br>
 
-<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/collaborative_metrics.png.png' width=70% /></br>
+<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/collaborative_metrics.png' width=70% /></br>
 
 Dari hasil pelatihan yang dilakukan. Dapat dilihat bahwa nilai konvergen metrik RMSE berada di sekitar 0.28 untuk training dan disekitar 0.35 untuk validasi.
 
