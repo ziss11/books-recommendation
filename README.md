@@ -11,14 +11,47 @@ Berdasarkan latar belakang yang telah dijelaskan di atas, topik proyek ini diamb
 ## **Business Understanding**
 ### **Problem Statement**
 Berdasarkan pada latar belakang di atas, permasalahan yang dapat diselesaikan pada proyek ini adalah sebagai berikut:
+
 * Bagaimana cara melakukan pengelolahan data sehingga dapat menghasilkan rekomendasi yang baik dan relevan?
 * Bagaimana cara membangun sistem untuk merekomendasikan buku yang yang sesuai dengan preferensi pengguna?
 ### **Goals**
 Tujuan dibuatnya proyek ini adalah sebagai berikut:
+
 * Melakukan pengolahan data yang baik agar dapat digunakan dalam membangun sistem rekomendasi yang baik.
 * Membangun model machine learning untuk merekomendasikan sebuah buku yang sesuai dengan preferensi pengguna.
 ### **Solution**
-Untuk menyelesaikan masalah ini, penulis akan menggunakan 2 solusi algoritma yaitu content-based filtering dan collaborative filtering. Berikut adalah penjelasan teknik-teknik yang akan digunakan untuk masalah ini:
+Solusi yang dapat diterapkan agar goals diatas terpenuhi adalah sebagai berikut:
 
-Content-Based Filtering merupakan cara untuk memberi rekomendasi bedasarkan genre atau fitur pada item yang disukai oleh pengguna. Content-based filtering mempelajari profil minat pengguna baru berdasarkan data dari objek yang telah dinilai pengguna.
-Collaborative Filtering merupakan cara untuk memberi rekomendasi bedasarkan penilaian komunitas pengguna atau biasa disebut dengan rating. Collaborative filtering tidak memerlukan atribut untuk setiap itemnya seperti pada sistem berbasis konten.
+* Melakukan analisa pada data untuk dapat memahami data yang ada seperti: Memeriksa _missing value_ dan duplikasi data.
+* Melakukan pemrosesan pada data seperti Normalisasi data rating.
+* Membangung sistem rekomendasi menggunakan 2 teknik yang umum digunakan yaitu: _Content-Based Filtering_ dan _Collaborative Filtering_. 
+
+## **Data Understanding**
+Dataset yang di gunakan pada proyek machine learning ini merupakan dataset buku lengkap dengan rating, pengarang dan penerbit-nya. Dataset tersebut dapat di unduh di website kaggle: [Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset).
+
+Terdapat 3 file pada dataset, antara lain:
+* Books.csv
+* Ratings.csv
+* Users.csv
+
+Pada proyek ini hanya menggunakan 2 file data, yaitu:
+* Books.csv</br>
+    File ini memiliki total jumlah 271360 data buku dan dan memiliki 8 kolom variabel data. Berikut penjelasan untuk masing-masing variabel:</br>
+    * `ISBN`: Kode pengidentifikasian buku yang bersifat unik.
+    * `Book-Title`: Judul Buku.
+    * `Book-Author`: Nama pengarang buku.
+    * `Year-Of-Publication`: Tahun penerbitan buku.
+    * `Publisher`: Pihak penerbit buku.
+    * `Image-URL-S`: URL yang menautkan ke gambar sampul berukuran kecil.
+    * `Image-URL-M`: URL yang menautkan ke gambar sampul berukuran normal.
+    * `Image-URL-L`: URL yang menautkan ke gambar sampul berukuran besar.
+
+* Ratings.csv</br>
+    File ini memiliki total jumlah 1149780 data rating dan dan memiliki 3 kolom variabel data. Berikut penjelasan untuk masing-masing variabel:</br>
+    * `User-ID`: Nomer unik user yang memberikan rating.
+    * `ISBN`: Kode pengidentifikasian buku yang bersifat unik.
+    * `Book-Rating`: Skor dari rating yang diberikan.
+
+Untuk dapat lebih memahami data perlu dilakukan eksplorasi pada data, eksplorasi yang di lakukan antara lain: 
+
+* Memeriksa informasi pada data
