@@ -36,7 +36,7 @@ Terdapat 3 file pada dataset, antara lain:
 
 Pada proyek ini hanya menggunakan 2 file data, yaitu:
 * Books.csv</br>
-    File ini memiliki total jumlah 271360 data buku dan dan memiliki 8 kolom variabel data. Berikut penjelasan untuk masing-masing variabel:</br>
+    File ini memiliki total jumlah 271360 data buku, 8 jumlah kolom variabel data dan memiliki sedikit missing value. Berikut penjelasan untuk masing-masing variabel:</br>
     * `ISBN`: Kode pengidentifikasian buku yang bersifat unik.
     * `Book-Title`: Judul Buku.
     * `Book-Author`: Nama pengarang buku.
@@ -47,7 +47,7 @@ Pada proyek ini hanya menggunakan 2 file data, yaitu:
     * `Image-URL-L`: URL yang menautkan ke gambar sampul berukuran besar.
 
 * Ratings.csv</br>
-    File ini memiliki total jumlah 1149780 data rating dan dan memiliki 3 kolom variabel data. Berikut penjelasan untuk masing-masing variabel:</br>
+    File ini memiliki total jumlah 1149780 data rating, 3 jumlah kolom variabel data dan tidak memiliki missing value. Berikut penjelasan untuk masing-masing variabel:</br>
     * `User-ID`: Nomer unik user yang memberikan rating.
     * `ISBN`: Kode pengidentifikasian buku yang bersifat unik.
     * `Book-Rating`: Skor dari rating yang diberikan.
