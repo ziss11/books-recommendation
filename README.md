@@ -140,5 +140,8 @@ Pada teknik ini proses pembuatan rekomendasi menggunakan model Deep Learning. La
 * Kekurangan
     * Membutuhkan parameter rating, sehingga jika ada item baru sistem tidak akan merekomendasikan item tersebut.
 
-Berikut merupakan hasil rekomendasi buku kepada user dengan ID: 241204
+Berikut merupakan hasil rekomendasi buku kepada user dengan ID: 241204</br>
+
+<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/collaborative_result.png' width=70% />
+
 
