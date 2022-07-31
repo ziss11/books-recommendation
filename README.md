@@ -58,10 +58,16 @@ Untuk dapat lebih memahami data perlu dilakukan eksplorasi pada data, eksplorasi
     * Books
     <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/info_books.png' width=100% /></br>
     Berdasarkan output di atas, dapat diketahui bahwa file Books.csv memiliki 271360 entri. Kemudian, semua kolom data memiliki type data object, sedangkan untuk kolom data `Year-Of-Publication` memiliki tipe data object yang mana seharusnya data tersebut memiliki tipe data number, tetapi hal ini tidak menjadi masalah sebab data ini tidak diperlukan untuk membuat sistem rekomendasi.</br>
-    
+    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/book_count.png' width=100% /></br>
+    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/authors_count.png' width=100% /></br>
+    Kemudian terdapat jumlah 242135 buku dan 102023 _author_ (pengarang) pada data.
     
     * Ratings
     <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/info_ratings.png' width=100% /></br>
     Untuk data ratings, memiliki 1149780 entri dan terdapat 2 tipe pada data yaitu number (int64) dan object.
+    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/ratings_count.png' width=100% /></br>
+    dapat dilihat pada gambar di atas, nilai maksimum rating adalah 10 dan nilai minimumnya adalah 0. Artinya, skala rating berkisar antara 0 hingga 10. Lalu mayoritas buku memiliki rating=0 yaitu sebanyak 716109 buku.
 
-* 
+* Memeriksa _Missing Value_</br>
+    <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/ratings_count.png' width=100% /></br>
+    
