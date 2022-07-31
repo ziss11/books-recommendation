@@ -2,7 +2,7 @@
 
 ## **Project Overview**
 ### **Latar Belakang**
-Menurut Mohammad Irfan, Andharini Dwi Cahyani dan Fika Hastarita R (2014) didalam jurnal yang mereka tulis berjudul [Sistem Rekomendasi: Buku Online dengan metode _Collaborative Filtering_](https://ejournal.akprind.ac.id/index.php/technoscientia/article/view/612) menyatakan bahwa buku merupakan informasi segala kebutuhan yang diperlukan, dimulai dari iptek, seni budaya, ekonomi, politik, sosial dan pertahanan keamanan dan lain-lain. Upaya membaca buku membuka wawasan dunia intelek sehingga dapat mengubah masa depan serta mencerdaskan akal, pikiran dan iman.Dengan membaca buku, selain pengetahuan akan semakin bertambah, pribadi akan  semakin kaya, yang kesemuannya jelas akan menurunkan efek negatif terhadap anak-anak, yakni kenakalan. Sedangkan anak yang tidak terbina minat bacanya sejak dini akan menghadapi peluang yang semakin kecil untuk mengembangkan pengetahuan setinggi-tingginya. Namun berdasarkan laporan Bank Dunia, Indonesia merupakan negara yang memiliki minatbaca sangat rendah. Hal tersebut sungguh disayangkan, mengingat sebagai negara besar, Indonesia memiliki potensi besar untuk menjadi negarayang unggul.
+Menurut Mohammad Irfan, Andharini Dwi Cahyani dan Fika Hastarita R (2014) didalam jurnal yang mereka tulis berjudul [Sistem Rekomendasi: Buku Online dengan metode Collaborative Filtering](https://ejournal.akprind.ac.id/index.php/technoscientia/article/view/612) menyatakan bahwa buku merupakan informasi segala kebutuhan yang diperlukan, dimulai dari iptek, seni budaya, ekonomi, politik, sosial dan pertahanan keamanan dan lain-lain. Upaya membaca buku membuka wawasan dunia intelek sehingga dapat mengubah masa depan serta mencerdaskan akal, pikiran dan iman.Dengan membaca buku, selain pengetahuan akan semakin bertambah, pribadi akan  semakin kaya, yang kesemuannya jelas akan menurunkan efek negatif terhadap anak-anak, yakni kenakalan. Sedangkan anak yang tidak terbina minat bacanya sejak dini akan menghadapi peluang yang semakin kecil untuk mengembangkan pengetahuan setinggi-tingginya. Namun berdasarkan laporan Bank Dunia, Indonesia merupakan negara yang memiliki minatbaca sangat rendah. Hal tersebut sungguh disayangkan, mengingat sebagai negara besar, Indonesia memiliki potensi besar untuk menjadi negarayang unggul.
 
 Rendahnya minat baca dikalangan masyarakat menjadi persoalan penting didunia pendidikan saat ini. Untuk itu diperlukan sebuah sistem yang dapat membantu merekomendasikan para pembaca agar lebih mudah mendapatkan informasi buku-buku yang akan dibaca selanjutnya. Banyaknya jumlah buku akan membuat pembaca terkadang kesulitan dalam menentukan buku yang hendak mereka baca selanjutnya.Terkadang dijumpai pembaca yang hanya ingin membaca buku-buku yang dengan reputasi penjualan terbaik. Ada pula pembaca yang hanya ingin membaca buku yang mirip dengan buku-buku yang pernah dibaca sebelumnya. Tidak jarang juga ditemui pembaca yang menentukan buku-buku yang akan dibaca selanjutnya berdasarkan rating dari buku-buku yang telah dilihatnya. Semakin tinggi rating dari buku tersebut, semakin tertarik pula pembaca untuk membacanya. Semakin rendah rating dari buku tersebut, maka pembaca cenderung enggan untuk membacanya. Tinggi rendahnya rating tersebut mempengaruhi buku-buku yang akan direkomendasikan. Nilai kemiripan antar buku dan rating buku dapat dijadikan landasan untuk memberikan rekomendasi buku kepada pembaca.
 
@@ -22,9 +22,9 @@ Tujuan dibuatnya proyek ini adalah sebagai berikut:
 ### **Solution**
 Solusi yang dapat diterapkan agar goals diatas terpenuhi adalah sebagai berikut:
 
-* Melakukan analisa pada data untuk dapat memahami data yang ada seperti: Memeriksa _missing value_ dan duplikasi data.
+* Melakukan analisa pada data untuk dapat memahami data yang ada seperti: Memeriksa missing value dan duplikasi data.
 * Melakukan pemrosesan pada data seperti Normalisasi data rating.
-* Membangung sistem rekomendasi menggunakan 2 teknik yang umum digunakan yaitu: _Content-Based Filtering_ dan _Collaborative Filtering_. 
+* Membangung sistem rekomendasi menggunakan 2 teknik yang umum digunakan yaitu: Content-Based Filtering dan Collaborative Filtering. 
 
 ## **Data Understanding**
 Dataset yang di gunakan pada proyek machine learning ini merupakan dataset buku lengkap dengan rating, pengarang dan penerbit-nya. Dataset tersebut dapat di unduh di website kaggle: [Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset).
@@ -60,7 +60,7 @@ Untuk dapat lebih memahami data perlu dilakukan eksplorasi pada data, eksplorasi
     Berdasarkan output di atas, dapat diketahui bahwa file Books.csv memiliki 271360 entri. Kemudian, semua kolom data memiliki type data object, sedangkan untuk kolom data `Year-Of-Publication` memiliki tipe data object yang mana seharusnya data tersebut memiliki tipe data number, tetapi hal ini tidak menjadi masalah sebab data ini tidak diperlukan untuk membuat sistem rekomendasi.</br>
     <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/book_count.png' width=70% /></br>
     <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/authors_count.png' width=70% /></br>
-    Kemudian terdapat jumlah 242135 buku dan 102023 _author_ (pengarang) pada data.
+    Kemudian terdapat jumlah 242135 buku dan 102023 author (pengarang) pada data.
     
     * Ratings</br>
     <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/info_ratings.png' width=70% /></br>
@@ -68,7 +68,7 @@ Untuk dapat lebih memahami data perlu dilakukan eksplorasi pada data, eksplorasi
     <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/ratings_count.png' width=70% /></br>
     dapat dilihat pada gambar di atas, nilai maksimum rating adalah 10 dan nilai minimumnya adalah 0. Artinya, skala rating berkisar antara 0 hingga 10. Lalu mayoritas buku memiliki rating=0 yaitu sebanyak 716109 buku.
 
-* Memeriksa _Missing Value_</br>
+* Memeriksa Missing Value</br>
     <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/books_missing_value.png' width=70% /></br>
     <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/ratings_missing_value.png' width=70% /></br>
     Jika dilihat dari output di atas. Terdapat sedikit missing value pada data buku, sedangkan pada data rating tidak memiliki missing value.
@@ -89,11 +89,25 @@ Sistem rekomendasi ini hanya memerlukan data author dan rating sebagai fitur unt
 Menggabungkan data buku dan rating menjadi satu sehingga data akan lebih mudah digunakan untuk pelatihan nantinya.
 
 * Menghapus duplikasi data</br>
-Penghapusan duplikasi yang dilakukan pada proyek ini yaitu penghapusan data yang memiliki judul buku yang sama tetapi memiliki `ISBN` yang berbeda. Sehingga 1 judul buku hanya memiliki 1 `ISBN` yang mana akan mempermudah dalam proses mendapatkan rekomendasi.
+Penghapusan duplikasi daya yang dilakukan pada proyek ini yaitu penghapusan data yang memiliki judul buku yang sama tetapi memiliki `ISBN` yang berbeda. Sehingga 1 judul buku hanya akan memiliki 1 `ISBN` yang mana akan mempermudah dalam proses mendapatkan rekomendasi.
 
-* Menangani _Missing Value_<br/>
-Salah satu cara untuk menangani _missing value_ pada data yaitu dengan melakukan drop baris data yang memiliki _value_ kosong. Sebab adanya _missing value_ pada data dapat memperburuk performa model atau sistem.
+* Menangani Missing Value<br/>
+Salah satu cara untuk menangani missing value pada data yaitu dengan melakukan drop baris data yang memiliki value kosong. Sebab adanya missing value pada data dapat memperburuk performa pelatihan pada model.
 
 * Menyeleksi data</br>
 Penyeleksian data pada proyek ini yaitu dengan hanya mengambil data buku dengan total jumlah skor rating pada masing-masing buku di atas 50. Karena sistem rekomendasi ini hanya merekomendasikan buku dengan rating yang tinggi.
+
+* Melakukan normalisasi data rating</br>
+Melakukan transformasi pada data fitur fitur yang akan dipelajari oleh model menggunakan library MinMaxScaler. MinMaxScaler mentransformasikan fitur dengan menskalakan setiap fitur ke rentang tertentu. Library ini menskalakan dan mentransformasikan setiap fitur secara individual sehingga berada dalam rentang yang diberikan pada set pelatihan, pada library ini memiliki range default antara 0 dan 1. Dengan merenapkan teknik normalisasi data, model akan dengan lebih mudah mengenali pola-pola yang terdapat pada data sehingga akan menghasilkan keluaran sesuai dengan yang diharapkan.
+
+* Split dataset</br>
+Membagi dataset menjadi data latih (train) dan data uji (test) merupakan hal yang harus kita lakukan sebelum membuat model.Data latih adalah sekumpulan data yang akan digunakan oleh model untuk melakukan pelatihan. Sedangkan, data uji adalah sekumpulan data yang akan digunakan untuk memvalidasi kinerja pada model yang telah dilatih. Karena data uji berperan sebagai data baru yang belum pernah dilihat oleh model, maka cara ini efektif untuk memeriksa performa model setelah proses pelatihan dilakukan. Proporsi pembagian dataset pada proyek ini menggunakan proporsi pembagian 80:20 yang berarti sebanyak 80% merupakan data latih dan 20% persen merupakan data uji.
+
+## **Modelling**
+Pembuatan sistem rekomendasi pada proyek ini menggunakan teknik Content-Based Filtering dan Collaborative Filtering. Untuk Content-Based Filtering menggunakan metode Cosine Similarity, sedangkan Collaborative Filtering menggunakan metode model based yaitu model Deep Learning. Berikut merupakan penjelasan dari tiap tahapan proses modelling:
+
+### **Content-Based Filtering**
+Pada metode ini pertama yang dilakukan yaitu melakukan feature engineering menggunakan library TfidfVectorizer dari library scikit-learn. Proses yang dilakukan menggunakan library TfidfVectorizer adalah tokenisasi fitur `Book-Author` sebab fitur tersebut yang akan menjadi acuan utama sistem rekomendasi menggunakan teknik ini. Output yang dihasilkan oleh library tersebut adalah matrix categorical. Kemudian, setelah itu dilakukan penghitungan derajat kesetaraan (similarity degree) antar buku menggunakan Cosine Similarity. Berikut merupakan formula untuk metode Cosine Similarity:</br>
+<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/cs_formula.png' width=70% />
+
 
