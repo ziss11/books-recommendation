@@ -78,3 +78,22 @@ Untuk dapat lebih memahami data perlu dilakukan eksplorasi pada data, eksplorasi
     Dapat dilihat pada output diatas. Tidak terdapat duplikat pada data `ISBN` tetapi terdapat banyak duplikat pada kolom data lainnya. Ini tidak wajar sebab `ISBN` merupakan identitas unik untuk masing-masing judul buku yang seharusnya jika `ISBN` tidak memiliki duplikat maka begitupun untuk data `Book-Title`.</br>
     <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/rating_duplicates.png' width=70% /></br>
     Begitupun pada data rating, terdapat banyak duplikat pada data. Tetapi ini hal yang wajar sebab tiap user dapat memberikan rating pada tiap buku yang berbeda dan buku yang berbeda dapat menerima rating dari user yang berbeda pula.
+
+## **Data Preparation**
+Data preparation diperlukan untuk mempersiapkan data agar ketika dilakukan proses pengembangan model atau sistem dapat menghasilkan rekomendasi dengan baik. Berikut ini merupakan tahapan-tahapan dalam melakukan persiapan data:
+
+* Menghapus data yang tidak diperlukan</br>
+Sistem rekomendasi ini hanya memerlukan data author dan rating sebagai fitur untuk model. Beberapa kolom data seperti `'Year-Of-Publication', 'Publisher', 'Image-URL-M', 'Image-URL-L'` tidak akan digunakan untuk sistem rekomendasi ini. Jadi data tersebut bisa dihapus.
+
+* Melakukan penggabungan data</br>
+Menggabungkan data buku dan rating menjadi satu sehingga data akan lebih mudah digunakan untuk pelatihan nantinya.
+
+* Menghapus duplikasi data</br>
+Penghapusan duplikasi yang dilakukan pada proyek ini yaitu penghapusan data yang memiliki judul buku yang sama tetapi memiliki `ISBN` yang berbeda. Sehingga 1 judul buku hanya memiliki 1 `ISBN` yang mana akan mempermudah dalam proses mendapatkan rekomendasi.
+
+* Menangani _Missing Value_<br/>
+Salah satu cara untuk menangani _missing value_ pada data yaitu dengan melakukan drop baris data yang memiliki _value_ kosong. Sebab adanya _missing value_ pada data dapat memperburuk performa model atau sistem.
+
+* Menyeleksi data</br>
+Penyeleksian data pada proyek ini yaitu dengan hanya mengambil data buku dengan total jumlah skor rating pada masing-masing buku di atas 50. Karena sistem rekomendasi ini hanya merekomendasikan buku dengan rating yang tinggi.
+
