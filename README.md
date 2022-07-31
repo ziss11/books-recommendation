@@ -142,3 +142,4 @@ Pada teknik ini proses pembuatan rekomendasi menggunakan model Deep Learning. La
 
 Berikut merupakan hasil rekomendasi buku kepada user dengan ID: 241204
 
+<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/collaborative_result.png' width=70% />
