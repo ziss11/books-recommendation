@@ -17,7 +17,7 @@ Berdasarkan pada latar belakang di atas, permasalahan yang dapat diselesaikan pa
 ### **Goals**
 Tujuan dibuatnya proyek ini adalah sebagai berikut:
 
-* Melakukan pengolahan data yang baik agar dapat digunakan dalam membangun sistem rekomendasi yang baik.
+* Dapat Melakukan pengolahan data yang baik agar dapat digunakan dalam membangun sistem rekomendasi yang baik.
 * Membangun model machine learning untuk merekomendasikan sebuah buku yang sesuai dengan preferensi pengguna.
 ### **Solution**
 Solusi yang dapat diterapkan agar goals diatas terpenuhi adalah sebagai berikut:
