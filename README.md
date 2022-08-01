@@ -17,13 +17,13 @@ Berdasarkan pada latar belakang di atas, permasalahan yang dapat diselesaikan pa
 ### **Goals**
 Tujuan dibuatnya proyek ini adalah sebagai berikut:
 
-* Melakukan pengolahan data yang baik agar dapat digunakan dalam membangun sistem rekomendasi yang baik.
+* Dapat Melakukan pengolahan data yang baik agar dapat digunakan dalam membangun sistem rekomendasi yang baik.
 * Membangun model machine learning untuk merekomendasikan sebuah buku yang sesuai dengan preferensi pengguna.
-### **Solution**
+### **Solution Approach**
 Solusi yang dapat diterapkan agar goals diatas terpenuhi adalah sebagai berikut:
 
 * Melakukan analisa pada data untuk dapat memahami data yang ada seperti: Memeriksa missing value dan duplikasi data.
-* Melakukan pemrosesan pada data seperti Normalisasi data rating.
+* Melakukan pemrosesan pada data seperti Normalisasi data rating, agar data dapat dengan mudah di proses oleh model.
 * Membangung sistem rekomendasi menggunakan 2 teknik yang umum digunakan yaitu: Content-Based Filtering dan Collaborative Filtering. 
 
 ## **Data Understanding**
@@ -36,7 +36,7 @@ Terdapat 3 file pada dataset, antara lain:
 
 Pada proyek ini hanya menggunakan 2 file data, yaitu:
 * Books.csv</br>
-    File ini memiliki total jumlah 271360 data buku dan dan memiliki 8 kolom variabel data. Berikut penjelasan untuk masing-masing variabel:</br>
+    File ini memiliki total jumlah 271360 data buku, 8 jumlah kolom variabel data dan memiliki sedikit missing value. Berikut penjelasan untuk masing-masing variabel:</br>
     * `ISBN`: Kode pengidentifikasian buku yang bersifat unik.
     * `Book-Title`: Judul Buku.
     * `Book-Author`: Nama pengarang buku.
@@ -47,7 +47,7 @@ Pada proyek ini hanya menggunakan 2 file data, yaitu:
     * `Image-URL-L`: URL yang menautkan ke gambar sampul berukuran besar.
 
 * Ratings.csv</br>
-    File ini memiliki total jumlah 1149780 data rating dan dan memiliki 3 kolom variabel data. Berikut penjelasan untuk masing-masing variabel:</br>
+    File ini memiliki total jumlah 1149780 data rating, 3 jumlah kolom variabel data dan tidak memiliki missing value. Berikut penjelasan untuk masing-masing variabel:</br>
     * `User-ID`: Nomer unik user yang memberikan rating.
     * `ISBN`: Kode pengidentifikasian buku yang bersifat unik.
     * `Book-Rating`: Skor dari rating yang diberikan.
@@ -83,19 +83,19 @@ Untuk dapat lebih memahami data perlu dilakukan eksplorasi pada data, eksplorasi
 Data preparation diperlukan untuk mempersiapkan data agar ketika dilakukan proses pengembangan model atau sistem dapat menghasilkan rekomendasi dengan baik. Berikut ini merupakan tahapan-tahapan dalam melakukan persiapan data:
 
 * Menghapus data yang tidak diperlukan</br>
-Sistem rekomendasi ini hanya memerlukan data author dan rating sebagai fitur untuk model. Beberapa kolom data seperti `'Year-Of-Publication', 'Publisher', 'Image-URL-M', 'Image-URL-L'` tidak akan digunakan untuk sistem rekomendasi ini. Jadi data tersebut bisa dihapus.
+Sistem rekomendasi ini hanya memerlukan data author dan rating sebagai fitur untuk model. Beberapa kolom data seperti `Year-Of-Publication, Publisher, Image-URL-M, Image-URL-L` tidak akan digunakan untuk sistem rekomendasi dengan teknik Content-Based Filtering, kemudian kolom data seperti `Book-Author` dan `Num-Ratings` (Jumlah total rating) tidak akan digunakan untuk sistem rekomendasi dengan teknik Collaborative Filtering. Jadi data tersebut bisa dihapus.
 
 * Melakukan penggabungan data</br>
 Menggabungkan data buku dan rating menjadi satu sehingga data akan lebih mudah digunakan untuk pelatihan nantinya.
 
 * Menghapus duplikasi data</br>
-Penghapusan duplikasi daya yang dilakukan pada proyek ini yaitu penghapusan data yang memiliki judul buku yang sama tetapi memiliki `ISBN` yang berbeda. Sehingga 1 judul buku hanya akan memiliki 1 `ISBN` yang mana akan mempermudah dalam proses mendapatkan rekomendasi.
+Penghapusan duplikasi data yang dilakukan pada proyek ini yaitu penghapusan data yang memiliki judul buku yang sama tetapi memiliki `ISBN` yang berbeda. Sehingga 1 judul buku hanya akan memiliki 1 `ISBN` yang mana akan mempermudah dalam proses mendapatkan rekomendasi.
 
 * Menangani Missing Value<br/>
 Salah satu cara untuk menangani missing value pada data yaitu dengan melakukan drop baris data yang memiliki value kosong. Sebab adanya missing value pada data dapat memperburuk performa pelatihan pada model.
 
 * Menyeleksi data</br>
-Penyeleksian data pada proyek ini yaitu dengan hanya mengambil data buku dengan total jumlah skor rating pada masing-masing buku di atas 50. Karena sistem rekomendasi ini hanya merekomendasikan buku dengan rating yang tinggi.
+Penyeleksian data pada proyek ini khususnya pada teknik Content-Based Filtering yaitu dengan hanya mengambil data buku dengan total jumlah skor rating pada masing-masing buku di atas 50. Karena sistem rekomendasi ini hanya merekomendasikan buku dengan rating yang tinggi.
 
 * Melakukan normalisasi data rating</br>
 Melakukan transformasi pada data fitur fitur yang akan dipelajari oleh model menggunakan library MinMaxScaler. MinMaxScaler mentransformasikan fitur dengan menskalakan setiap fitur ke rentang tertentu. Library ini menskalakan dan mentransformasikan setiap fitur secara individual sehingga berada dalam rentang yang diberikan pada set pelatihan, pada library ini memiliki range default antara 0 dan 1. Dengan merenapkan teknik normalisasi data, model akan dengan lebih mudah mengenali pola-pola yang terdapat pada data sehingga akan menghasilkan keluaran sesuai dengan yang diharapkan.
@@ -103,7 +103,7 @@ Melakukan transformasi pada data fitur fitur yang akan dipelajari oleh model men
 * Split dataset</br>
 Membagi dataset menjadi data latih (train) dan data uji (test) merupakan hal yang harus kita lakukan sebelum membuat model.Data latih adalah sekumpulan data yang akan digunakan oleh model untuk melakukan pelatihan. Sedangkan, data uji adalah sekumpulan data yang akan digunakan untuk memvalidasi kinerja pada model yang telah dilatih. Karena data uji berperan sebagai data baru yang belum pernah dilihat oleh model, maka cara ini efektif untuk memeriksa performa model setelah proses pelatihan dilakukan. Proporsi pembagian dataset pada proyek ini menggunakan proporsi pembagian 90:10 yang berarti sebanyak 90% merupakan data latih dan 10% persen merupakan data uji.
 
-## **Modelling**
+## **Modeling and Result**
 Pembuatan sistem rekomendasi pada proyek ini menggunakan teknik Content-Based Filtering dan Collaborative Filtering. Untuk Content-Based Filtering menggunakan metode Cosine Similarity, sedangkan Collaborative Filtering menggunakan metode model based yaitu model Deep Learning. Berikut merupakan penjelasan dari tiap tahapan proses modelling:
 
 ### **Content-Based Filtering**
@@ -148,9 +148,9 @@ Berikut merupakan hasil rekomendasi buku kepada user dengan ID: 241204</br>
 Evaluasi yang akan dilakukan diproyek ini yaitu evaluasi dengan Precision Content untuk Content-Based Filtering dan Root Mean Squared Error (RMSE) untuk Collaborative Filtering.
 
 ### **Content-Based Filtering**
-Evaluasi pada teknik ini menggunakan metrik precision content untuk menghitung tingkat presisi sistem dari rekomendasi yang dibuat. Berikut hasilnya:
+Evaluasi pada teknik ini menggunakan metrik precision content untuk menghitung tingkat presisi sistem dari rekomendasi yang dibuat. Cara menghitung metric precision content yaitu dengan membagikan jumlah rekomendasi yang relevan dan jumlah total rekomendasi yang diberikan lalu setelah itu didapatkan hasil tingkat presisi sisem dalam melakukan rekomendasi. Lebih jelasnya terdapat pada gambar berikut:
 
-Formula metrik Precision:</br>
+Formula metrik Precision Content:</br>
 <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/precision_metric.png' width=70% /></br>
 
 Hasil metric Presision:</br>
@@ -164,9 +164,9 @@ Metrik evaluasi yang digunakan untuk mengukur performa dari model ini yaitu deng
 
 <image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/rmse_formula.png' width=70% /></br>
 
-<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/collaborative_metrics.png.png' width=70% /></br>
+<image src='https://raw.githubusercontent.com/ziszz/book-recommendation/master/visualizations/collaborative_metrics.png' width=70% /></br>
 
-Dari hasil pelatihan yang dilakukan. Dapat dilihat bahwa nilai konvergen metrik RMSE berada di sekitar 0.28 untuk training dan disekitar 0.35 untuk validasi.
+Dari hasil pelatihan yang dilakukan. Proses training model cukup smooth dan model konvergen pada epochs sekitar 20. Dapat dilihat bahwa nilai konvergen metrik RMSE berada di sekitar 0.28 untuk training dan disekitar 0.35 untuk validasi. Nilai tersebut cukup baik untuk sistem rekomendasi.
 
 ## **Conslusion**
 Dari hasil pembuatan proyek sistem rekomendasi buku diatas. Dapat disimpulkan bahwa model memiliki performa yang sangat baik dalam memberikan rekomendasi baik pada model yang menggunakan teknik Content-Based Filtering maupun Collaborative Filtering. Hal ini didukung dengan hasil rekomendasi yang diberikan dari kedua model memberikan hasil rekomendasi yang cukup relevan dengan preferensi pengguna.
